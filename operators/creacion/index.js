@@ -1,5 +1,5 @@
-import { displayLog } from '../src/utils';
-import { from, range, of, interval, timer } from 'rxjs';
+import { displayLog } from '../../src/utils';
+import { from, range, of, interval, timer, fromEvent } from 'rxjs';
 
 export const fromOperator = () => {
     const myArray = [1, 2, 3, 4, 5];
@@ -35,4 +35,13 @@ export const intervalTimerOperators = () => {
     const myTimer = timer(4000, 1000);
     const subscription2 = myTimer.subscribe(e => displayLog(`Timer - ${e}`));
     timer(7000).subscribe(() => subscription2.unsubscribe());
+}
+
+export const fromEventOperators = () => {
+    const myButton = document.getElementById('myMButton');
+    const source = fromEvent(myButton, 'click');
+
+    source.subscribe(event => {
+        displayLog(`click event at pos (${event.x}, ${event.y})`)
+    })
 }
