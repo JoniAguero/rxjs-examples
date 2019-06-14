@@ -14,12 +14,14 @@ export default () => {
     })
 
     const observer = {
-        next: (x) => displayLog(x),
-        error: (err) => console.error(err),
+        next: x => displayLog(x),
+        error: err => console.error(err),
         complete: () => displayLog('[done]')
     }
 
     const subscribe = hello.subscribe(observer);
+    const subscribe2 = hello.subscribe(observer); // Se ejecuta
+    subscribe.unsubscribe(); // No se ejecuta ea operacion asincrona por el unsubscribe
 
     /* const src1 = interval(300);
     const src2 = "Hello World!";
