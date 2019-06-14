@@ -1,6 +1,9 @@
 //import stuff
 import example from './create';
-import { fromOperator } from '../operators/from';
+import {
+    fromOperator,
+    ofRangeOperator
+} from '../operators';
 
 //run stuff
-fromOperator();
+ofRangeOperator();
