@@ -2,8 +2,9 @@
 import example from './create';
 import {
     fromOperator,
-    ofRangeOperator
+    ofRangeOperator, 
+    intervalTimerOperators
 } from '../operators';
 
 //run stuff
-ofRangeOperator();
+intervalTimerOperators();

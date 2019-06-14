@@ -1,5 +1,5 @@
 import { displayLog } from '../src/utils';
-import { from, range, of } from 'rxjs';
+import { from, range, of, interval, timer } from 'rxjs';
 
 export const fromOperator = () => {
     const myArray = [1, 2, 3, 4, 5];
@@ -25,4 +25,14 @@ export const ofRangeOperator = () => {
     );
     const subscription = myArrayDiffObjs.subscribe(e => displayLog(e));
     subscription.unsubscribe();
+}
+
+export const intervalTimerOperators = () => {
+    const myInterval = interval(400);
+    const subscription = myInterval.subscribe(e => displayLog(`Interval - ${e}`));
+    timer(3000).subscribe( () => subscription.unsubscribe() );
+
+    const myTimer = timer(4000, 1000);
+    const subscription2 = myTimer.subscribe(e => displayLog(`Timer - ${e}`));
+    timer(7000).subscribe(() => subscription2.unsubscribe());
 }
