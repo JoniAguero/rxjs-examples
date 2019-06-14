@@ -6,10 +6,20 @@ export default () => {
 
     const hello = Observable.create(function(observer){
         observer.next('Hello');
-        observer.next('World');
+        
+        setTimeout(() => {
+            observer.next('World');
+            observer.complete();
+        }, 2000);
     })
 
-    const subscribe = hello.subscribe( e => displayLog(e) )
+    const observer = {
+        next: (x) => displayLog(x),
+        error: (err) => console.error(err),
+        complete: () => displayLog('[done]')
+    }
+
+    const subscribe = hello.subscribe(observer);
 
     /* const src1 = interval(300);
     const src2 = "Hello World!";
