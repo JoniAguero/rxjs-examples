@@ -12,5 +12,9 @@ import {
     reduceScanOperators
 } from '../operators/funcionales';
 
+import {
+    shareOperators
+} from '../operators/share';
+
 //run stuff
-reduceScanOperators();
+shareOperators();
