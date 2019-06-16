@@ -13,12 +13,28 @@
         #log-container > div{
             margin-bottom: 10px;
         }
+        #container-padre {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container-hijo {
+            height: 200px;
+            width: 200px;
+            background-color: grey;
+            border: 1px solid black;
+        }
     </style>
   </head>
   <body>
     <h1>See the output below</h1>
     <button id="myMButton">BUTTON</button>
     <div id="log-container"></div>
+    <div id="container-padre">
+      <div id="container-hijo">
+
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

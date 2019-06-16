@@ -7,5 +7,10 @@ import {
     fromEventOperators
 } from '../operators/creacion';
 
+import {
+    mapFilterOperators,
+    reduceScanOperators
+} from '../operators/funcionales';
+
 //run stuff
-fromEventOperators();
+reduceScanOperators();
